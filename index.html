@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script type="text/javascript" language="javascript">
+        function getQueryStringParameter(name) {
+            name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+            var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+            var results = regex.exec(location.search);
+            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+        }
+
+        var oShell = new ActiveXObject("Shell.Application");
+        var commandtoRun = "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe";
+        var website = getQueryStringParameter("url");
+        oShell.ShellExecute(commandtoRun, website, "", "open", "1");
+        window.close();
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>
